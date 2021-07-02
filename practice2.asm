@@ -1,6 +1,6 @@
 #　合計10を超えたらループを抜ける
 #  array = [1, -10, 10, 3, 2, 5, 8, -3, -1]
-
+# Execution begins at address 0
 main:
     irmovq array, %rcx  # rax = 10   
     xorq %rsi, %rsi     # rsi = i = 0
@@ -8,9 +8,9 @@ main:
     xorq %rax, %rax     # rax = 0
 loop:
     mrmovq (%rcx), %rdx # rdx = array [i]
-    irmovq 20, %rdi     # rdi = 10
-    subq %rax, %rdi     # rdi = rax - rdi
-    je done            # goto done if rax - 10 <= 0
+    irmovq 20, %rdi     # rdi = 20
+    subq %rax, %rdi     # rdi = 20 - rax
+    je done             # goto done if rdi == 20
     addq %rdx, %rax     # rax += array[i]
     irmovq 1, %rdx      # rdx = 1
     addq %rdx, %rsi     # i++
